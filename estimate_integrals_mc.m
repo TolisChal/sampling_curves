@@ -1,4 +1,4 @@
-function integral_values = estimate_integrals_mc(interval_decom, poly_speed_sq)
+function [integral_values, integral_ratios] = estimate_integrals_mc(interval_decom, poly_speed_sq)
 
     n = length(interval_decom);
     integral_values = zeros(1, n-1);
@@ -12,7 +12,7 @@ function integral_values = estimate_integrals_mc(interval_decom, poly_speed_sq)
         integral_values(i) = mean(vals);
     end
     
-    integral_values = integral_values / sum(integral_values);
+    integral_ratios = integral_values / sum(integral_values);
 
 end
 
