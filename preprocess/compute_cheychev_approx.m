@@ -2,11 +2,12 @@ function chebyshev_coeffs = compute_cheychev_approx(poly_speed_sq, interval_deco
 
     n = length(interval_decom);
     k = 10;
-    for k=1:n+1
-        CP(k) = cos((2*k-1)*d);
+    d = pi/(2*k+2);
+    for jj=1:k+1
+        CP(jj) = cos((2*jj-1)*d);
     end
     
-    chebyshev_coeffs = zeros(n-1, k);
+    chebyshev_coeffs = zeros(n-1, k+1);
     
     for i = 1:(n-1)
         a = interval_decom(i);
@@ -14,7 +15,7 @@ function chebyshev_coeffs = compute_cheychev_approx(poly_speed_sq, interval_deco
         
         X = (b-a)*CP/2+(a+b)/2;
         Y = sqrt(polyval(poly_speed_sq, X));
-        p = polyfit(X, Y, k-1);
+        p = polyfit(X, Y, k);
         chebyshev_coeffs(i, :) = p;
     end
 

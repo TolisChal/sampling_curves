@@ -8,8 +8,9 @@ function coeff_sum = sum_poly_coeff(x1, x2)
     else
         max_order = size(x2);
     end
-    
+    %x1
     new_x1 = padarray(x1,max_order-size(x1),0,'pre');
+    %x2
     new_x2 = padarray(x2,max_order-size(x2),0,'pre');
     coeff_sum = new_x1 + new_x2;
     
