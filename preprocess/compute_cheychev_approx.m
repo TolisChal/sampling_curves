@@ -1,7 +1,8 @@
-function chebyshev_coeffs = compute_cheychev_approx(poly_speed_sq, interval_decom)
+function chebyshev_coeffs = compute_cheychev_approx(poly_speed_sq, interval_decom, epsilon)
 
     n = length(interval_decom);
-    k = 10;
+    k = get_chebychev_degree(poly_speed_sq, epsilon);
+    %k = 10;
     d = pi/(2*k+2);
     for jj=1:k+1
         CP(jj) = cos((2*jj-1)*d);
