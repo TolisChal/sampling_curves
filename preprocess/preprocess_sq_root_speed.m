@@ -6,6 +6,7 @@ function [interval_decom, integral_values, integral_ratios, chebyshev_coeffs] = 
     %[Cs, Ds] = compute_cheychev_approx_2(poly_speed_sq, interval_decom, epsilon);
     
     [integral_values, integral_ratios] = estimate_integrals_mc(interval_decom, chebyshev_coeffs);
+    %[integral_values, integral_ratios] = estimate_integrals_2(interval_decom, Ds);
     
 end
 

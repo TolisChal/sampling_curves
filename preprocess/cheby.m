@@ -37,7 +37,7 @@ for k=1:n+1
 end
 X = (b-a)*X/2+(a+b)/2;
 x = X;
-Y = f(X);
+Y = sqrt(polyval(f,X));
 for k = 1:n+1
   z = (2*k-1)*d;
   for j = 1:n+1
@@ -45,4 +45,4 @@ for k = 1:n+1
   end
 end
 C = 2*C/(n+1);
-C(1) = C(1)/2;
+%C(1) = C(1)/2;

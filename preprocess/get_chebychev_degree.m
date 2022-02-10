@@ -6,8 +6,11 @@ function k = get_chebychev_degree(poly_speed_sq, epsilon)
     
     for i = 1:nn
         z = r(i);
+        if (abs(real(z)) > 1)
+            continue
+        end
         az = norm(z+1) + norm(z-1);
-        az^2
+        %az^2
         rz = (az + sqrt(az^2-4))/2;
         if (rz < rho)
             rho = rz;

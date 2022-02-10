@@ -24,10 +24,13 @@ function interval_decom = split_curve_2(Coeffs, a, b)
     fun = @(x)sytemEqns(x, prod_1, prod_2);
     x0 = (a+b)/2;
     
-    [sol, fval, exitflag] = fsolve(fun, x0);
-    exitflag
-    fval
-    if (exitflag > 0)
+    options = optimoptions('fsolve','Display','off','Algorithm','levenberg-marquardt');
+    [sol, fval, exitflag] = fsolve(fun, x0, options);
+    %exitflag
+    if ((exitflag > 0) && (abs(sol) < 1))
+        fval
+        Coeffs
+        error('we have to split')
         all_roots = {};
         for i = 1:n
             p = sum_poly_coeff(prod_1(i, :), -prod_2(i, :));
