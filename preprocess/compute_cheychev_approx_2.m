@@ -1,7 +1,10 @@
 function [Cs, Ds] = compute_cheychev_approx_2(poly_speed_sq, interval_decom, epsilon)
 
     n = length(interval_decom);
-    k = get_chebychev_degree(poly_speed_sq, epsilon);
+    k = get_chebychev_degree(poly_speed_sq, epsilon)
+    %if (k>70)
+    %    error('k large')
+    %end
     %k = 10;
     
     [Cs, Ds] = get_cheb_coeffs(k, poly_speed_sq);
