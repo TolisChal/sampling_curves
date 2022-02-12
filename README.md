@@ -6,7 +6,7 @@ Run the script `install.m` to add to the path the required directories.
 
 ### Usage
 
-To use the implementation, you have to give:  
+To use the implementation, the main function is `SampleParamCurve`. You have to give as input:  
 (i) The coefficients of each univariate polynomial with a matrix that contains them row-wise.  
 (ii) The domain of the curve with an interval [a,b].  
 (iii) The number of uniformly distributed points you want to generate.  
