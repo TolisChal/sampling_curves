@@ -10,14 +10,14 @@ for i = 1:length(n)
         e_iter = 1;
         coeffs = randn(n(i), d(j));
         for epsilon = epsilons
-            if (isempty(results_newton{i, j, e_iter}))
+            if (isempty(results_bisection{i, j, e_iter}))
                 all_coeffs{i, j, e_iter} = coeffs; 
                 disp(strcat('n = ',num2str(n(i)),' , d = ', num2str(d(j)),' epsilon = ',num2str(epsilon)))
                 %[samples, t_vals, k, l, preprocess_time, time_per_sample] = SampleParamCurve(coeffs, N, epsilon, 'newton');
                 %results_newton{i, j, e_iter} = [preprocess_time, time_per_sample, min(t_vals), max(t_vals), l, k];
                 
-                [samples, t_vals, k, l, preprocess_time, time_per_sample] = SampleParamCurve(coeffs, N, epsilon, 'bisection');
-                results_bisection{i, j, e_iter} = [preprocess_time, time_per_sample, min(t_vals), max(t_vals), l, k];
+                [samples, t_vals, k, preprocess_time, time_per_sample] = SampleParamCurve(coeffs, N, epsilon, 'bisection');
+                results_bisection{i, j, e_iter} = [preprocess_time, time_per_sample, min(t_vals), max(t_vals), k];
             else
                 disp('skip experiment')
             end
