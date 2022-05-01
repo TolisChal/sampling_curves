@@ -4,8 +4,8 @@ coeffs = randn(3,4);
 epsilon = 0.1;
 N = 10;
 
-a = -1;
-b = 1;
+a = -5;
+b = 5;
 
 [samples, t_vals, k, preprocess_time, time_per_sample] = SampleParamCurve(coeffs, a, b, N, epsilon);
 fig = plot_points_on_3d_curve(coeffs,t_vals);
